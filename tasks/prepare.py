@@ -1,6 +1,5 @@
 import pandas as pd
 import json
-from fuzzywuzzy import fuzz
 from sentence_transformers import SentenceTransformer
 from models import session, Affiliations as affiliations_table
 
