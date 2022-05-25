@@ -5,6 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
+
 class Affiliations(Base):
     __tablename__ = "affiliations"
 
@@ -13,6 +14,8 @@ class Affiliations(Base):
     affiliate_string = Column(Text)
     embedding = Column(JSON)
     merged = Column(Boolean)
+
+
 # connection
 engine = create_engine("sqlite:///database.db")
 
