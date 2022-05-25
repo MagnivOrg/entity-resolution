@@ -7,8 +7,8 @@ from magniv.core import task
 THRESHOLD = 0.80
 
 
-@task(schedule="@hourly")
-def nightly_task():
+@task(schedule="@daily", description="Daily task to resolve new entites")
+def daily_entity_resolution():
     new_affiliations = (
         session.query(affiliations_table).filter_by(merged=False).limit(10).all()
     )
