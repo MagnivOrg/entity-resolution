@@ -24,10 +24,9 @@ def daily_entity_resolution():
                 np.array(json.loads(affiliation.embedding)),
                 np.array(json.loads(c_affiliation.embedding)),
             ).item()
-            if cos_sim > THRESHOLD:
-                if cos_sim > highest_cos_sim:
-                    highest_cos_sim = cos_sim
-                    highest_id = c_affiliation.id
+            if cos_sim > THRESHOLD and cos_sim > highest_cos_sim:
+                highest_cos_sim = cos_sim
+                highest_id = c_affiliation.id
         if highest_cos_sim > 0:
             # delete the current
             highest_match = (
@@ -39,11 +38,11 @@ def daily_entity_resolution():
             print(highest_match.affiliate_string)
             print("_______________________________________")
             session.delete(affiliation)
-            session.commit()
         else:
             print("NO MATCH: ", affiliation.affiliate_string)
             affiliation.merged = True
-            session.commit()
+
+        session.commit()
         # if no threshold set completed to true
 
 
