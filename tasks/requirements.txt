@@ -6,7 +6,7 @@ filelock==3.7.0
 greenlet==1.1.2
 huggingface-hub==0.7.0
 idna==3.3
-joblib==1.1.0
+joblib==1.2.0
 magniv==0.1.39
 nltk==3.7
 numpy==1.22.4
